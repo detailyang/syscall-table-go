@@ -8,6 +8,8 @@
 </p>
 
 ```go
+package main
+
 import (
     st "github.com/detailyang/syscall-table-go"
     "fmt"

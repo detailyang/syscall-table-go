@@ -1,5 +1,8 @@
 name: Upgrade Syscall Table  
-on: [push]
+on:
+ push:
+ schedule:
+    - cron: "* 12 * * *"
 jobs:
   upgrade:
     runs-on: ubuntu-latest
