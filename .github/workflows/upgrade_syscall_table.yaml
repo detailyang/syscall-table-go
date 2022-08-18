@@ -1,0 +1,20 @@
+name: Upgrade Syscall Table  
+on: [push]
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+      - run: |
+          go version
+          bash scripts/update.sh
+          go fmt syscall.go
+          gofmt -e syscall.go &> /dev/null
+          if [ $? -ne 0 ]; then
+              echo "invalid go syntax"
+              exit 127
+          fi
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: update syscall table 
