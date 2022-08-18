@@ -1,7 +1,6 @@
 package syscall
 
 // at https://raw.githubusercontent.com/torvalds/linux/master/arch/x86/entry/syscalls/syscall_64.tbl
-// cat syscall | awk '{print  ":""\"""\","}'
 var Table map[uint64]string = map[uint64]string{
 	0:   "read",
 	1:   "write",
